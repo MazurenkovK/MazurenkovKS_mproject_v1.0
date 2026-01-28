@@ -37,5 +37,5 @@ my_project/
     # ├──
     # └── 
 ├── readme.md 
-└── pyproject.toml
+└── requirements.txt
 ```

@@ -4,3 +4,8 @@
 my_file/
 __pycache__/
 .pytest_cache/
+venv
+app/data_hard
+app/detect/images
+app/seg/images
+app/runs
