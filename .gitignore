@@ -9,3 +9,4 @@ app/data_hard
 app/detect/images
 app/seg/images
 app/runs
+test_*.*
