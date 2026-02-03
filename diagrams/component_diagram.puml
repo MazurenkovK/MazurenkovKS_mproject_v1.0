@@ -1,0 +1,74 @@
+@startuml component_diagram
+title Система измерения давления — Диаграмма компонентов
+
+package "Edge-устройство (Смартфон / Планшет)" {
+
+    package "Мобильное приложение (Android)" {
+
+    [Пользовательский интерфейс] as UI
+    [Модуль аутентификации] as Auth
+    [Модуль захвата\n(фото / видео)] as Capture
+    [Модуль настроек] as Settings
+    [Просмотр результатов] as Results
+    
+
+        package "Слой машинного зрения" {
+
+        [Конвейер расчёта давления] as Pipeline
+
+        [Детектор манометра +\nпредобработка изображения] as Meter
+        [Детектор шкалы\n(минимум / максимум)] as Scale
+        [Сегментация стрелки] as Needle
+        [Геометрический модуль] as Geometry
+        [OCR шкалы\n(определение MAX)] as OCR
+        [Регрессионная модель\nопределения давления] as Pressure
+        }
+
+        package "База данных" {
+
+        [Хранилище результатов] as Storage
+        [Управление пользователями] as Users
+        [Мониторинг и логирование] as Logs
+        }
+
+        package "ML-библиотеки" {
+        [Модел YOLO] as YOLO
+        [OCR Tesseract] as Tesseract
+        [Модель MobileNet] as MobileNet
+        }
+    }
+}
+' === Связи пользовательского интерфейса ===
+UI --> Auth
+UI --> Capture
+UI --> Settings
+UI --> Results
+
+Auth --> Users
+
+Capture --> Pipeline
+Settings --> Pipeline
+Pipeline --> Results
+
+' === Внутренний конвейер ===
+Pipeline --> Meter
+Pipeline --> Scale
+Pipeline --> Needle
+Pipeline --> Geometry
+Pipeline --> OCR
+Pipeline --> Pressure
+
+' === Использование библиотек ===
+Scale --> YOLO
+Needle --> YOLO
+OCR --> Tesseract
+Pressure --> MobileNet
+
+' === Хранение и мониторинг ===
+Pipeline --> Storage
+Pipeline --> Logs
+Users --> Logs
+Storage --> Results
+
+@enduml
+

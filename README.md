@@ -36,6 +36,12 @@ my_project/
     # ├──
     # ├──
     # └── 
+├── diagrams/              # Все UML/PlantUML/мермейд диаграммы
+│   ├── use_case_diagram.puml
+│   ├── component_diagram.puml
+│   │   
+# │   └── class
+│      
 ├── readme.md 
 └── requirements.txt
 ```

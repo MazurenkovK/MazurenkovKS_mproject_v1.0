@@ -10,3 +10,4 @@ app/detect/images
 app/seg/images
 app/runs
 test_*.*
+archive/
