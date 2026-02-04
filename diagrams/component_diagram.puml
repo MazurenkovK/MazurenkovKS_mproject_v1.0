@@ -1,9 +1,9 @@
 @startuml component_diagram
 title Система фиксации давления — диаграмма компонентов
 
-package "Edge-устройство (Смартфон / Планшет)" {
+package "Смартфон (Android)" {
 
-    package "Мобильное приложение (Android)" {
+    package "Мобильное приложение Pressure App" {
 
     [Пользовательский интерфейс] as UI
     [Модуль аутентификации] as Auth

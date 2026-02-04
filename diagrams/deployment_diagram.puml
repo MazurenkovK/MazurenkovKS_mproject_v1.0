@@ -1,0 +1,42 @@
+@startuml deployment_diagram
+title Диаграмма развертывания — Pressure App
+
+node "Смартфон (Android)" {
+
+    component "UI приложение" {
+    }
+
+    component "Camera Module"
+    ' component "Pressure Pipeline\n(YOLO + Segmentation + OCR + Regression)"
+    ' component "Regression Module\n(MobileNet Pressure Model)"
+    component "MeasurementRepository"
+    component "StorageManager"
+    component "ExportManager"
+    component "Room Database"
+    component "Image Storage"
+
+    "UI приложение" --> "Camera Module"
+    "Camera Module" --> "Pressure Pipeline"
+
+    "Pressure Pipeline" --> "MeasurementRepository"
+    
+    "MeasurementRepository" --> "Room Database"
+    "MeasurementRepository" --> "StorageManager"
+
+    "StorageManager" --> "Image Storage"
+
+    "ExportManager" --> "MeasurementRepository"
+    "ExportManager" --> "StorageManager"
+
+    "UI приложение" --> "ExportManager"
+}
+
+node "ПК инженера" {
+    component "USB-C подключение"
+}
+
+"Image Storage" --> "USB-C подключение"
+"Room Database" --> "USB-C подключение"
+
+@enduml
+
