@@ -1,11 +1,11 @@
 # project_base/pipeline.py
 import numpy as np
 
-from meter_detector import MeterDetector
-from yolo_detect import GaugeYOLO
-from needle_seg import NeedleSegmenter
-from geometry import angle_from_minimum, normalize_angle
-from scale_ocr import ScaleOCR
+from app.detectors.meter_detector import MeterDetector
+from app.detectors.yolo_detect import GaugeYOLO
+from app.segmenters.needle_seg import NeedleSegmenter
+from app.geometry.geometry import angle_from_minimum, normalize_angle
+from app.ocr.scale_ocr import ScaleOCR
 
 import cv2
 import numpy as np
