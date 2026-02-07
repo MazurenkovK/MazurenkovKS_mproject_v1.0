@@ -1,7 +1,7 @@
-# project_base/main.py
+# app/main.py
 import os
 import cv2
-from app.core.pipeline import PressurePipeline
+from  core.pipeline import PressurePipeline
 
 IMG_DIR = "/Users/konstantinmazurenkov/MazurenkovKS_fcw/MazurenkovKS_fcw/app/images_test"
 

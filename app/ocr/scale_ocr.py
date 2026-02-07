@@ -1,4 +1,4 @@
-# project_base/scale_ocr.py
+# app/ocr/scale_ocr.py
 import cv2
 import numpy as np
 import pytesseract

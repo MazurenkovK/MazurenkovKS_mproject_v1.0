@@ -1,4 +1,4 @@
-#project_base/meter_detector.py
+# app/detectors/meter_detector.py
 import cv2
 from ultralytics import YOLO
 

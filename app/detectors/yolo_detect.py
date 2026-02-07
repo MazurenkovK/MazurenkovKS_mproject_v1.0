@@ -1,4 +1,4 @@
-# project_pgtu/yolo_detect.py
+# app/detectors/yolo_detect.py
 
 from ultralytics import YOLO
 import cv2

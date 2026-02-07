@@ -63,38 +63,3 @@ pressure_gauge/
 ├── README.md
 └── .gitignore
 ```
-
-
-
-```sh
-my_project/
-├── app/
-│   ├── main.py          
-# │   ├── templates/       
-# │   ├── meter_detector/
-# │   └── factory/
-# │   ├── observer/
-# │   ├── 
-# │   ├── 
-# │   └── 
-# ├── install/
-# ├── test/
-├── .gitignore
-├── docs
-    ├── Проект по детекции избыточного давления...
-    ├── План проекта.md
-    ├── 6 Введение.md
-    ├── Список литературы.md
-    ├── Черновик.md
-    # ├──
-    # ├──
-    # └── 
-├── diagrams/              # Все UML/PlantUML/мермейд диаграммы
-│   ├── use_case_diagram.puml
-│   ├── component_diagram.puml
-│   │   
-# │   └── class
-│      
-├── readme.md 
-└── requirements.txt
-```

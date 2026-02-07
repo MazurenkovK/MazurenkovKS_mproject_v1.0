@@ -6,8 +6,8 @@ __pycache__/
 .pytest_cache/
 venv
 app/data_hard
-app/detect/images
-app/seg/images
+app/detect
+app/seg
 app/runs
 test_*.*
 archive/

@@ -1,4 +1,4 @@
-# project_base/needle_seg.py
+# app/segmenters/needle_seg.py
 import numpy as np
 from ultralytics import YOLO
 
