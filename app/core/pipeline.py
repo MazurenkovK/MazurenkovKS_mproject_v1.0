@@ -21,26 +21,27 @@ class PressurePipeline:
         self.meter = MeterDetector()
         self.gauge = GaugeYOLO(gauge_model_path)
         self.needle = NeedleSegmenter(seg_model_path)
-        self.ocr = ScaleOCR(debug=True)
+        self.ocr = ScaleOCR(debug=False)
 
         self.p_min = pressure_min
         self.p_max_default = pressure_max
 
-    def process(self, img, visualize=True):
-        # STEP 1 — meter
+    def process(self, img, file_name=None, visualize=True):
+        # шаг 1 — meter
         cropped, meter_center = self.meter.detect_and_crop(img)
         if cropped is None:
             raise RuntimeError("Meter not found")
 
-        # STEP 2 — scale
+        # шаг 2 — scale
         minimum, maximum, img_yolo = self.gauge.detect_scale(cropped)
         if minimum is None or maximum is None:
             raise RuntimeError("Scale not detected")
         
         # OCR MAX
         max_value = self.ocr.detect_max_value(img_yolo, maximum)
-        print("OCR max value:", max_value)
-        if max_value is not None and max_value < 20:
+        # print("OCR max value:", max_value)
+        print(f"({file_name}) OCR max value: {max_value}") 
+        if max_value is not None and max_value <= 6:
             p_max = max_value
         else:
             p_max = self.p_max_default
@@ -75,7 +76,7 @@ class PressurePipeline:
         pressure = self.p_min + value * (p_max - self.p_min)
 
         if visualize:
-            self._visualize(img_yolo, center, minimum, maximum, tip,
+            self._visualize(file_name, img_yolo, center, minimum, maximum, tip,
                             angle_tip, angle_max, pressure)
 
         return pressure
@@ -84,6 +85,7 @@ class PressurePipeline:
 
     def _visualize(
         self,
+        file_name,
         img,
         center,
         minimum,
@@ -91,7 +93,7 @@ class PressurePipeline:
         tip,
         angle_tip,
         angle_max,
-        pressure
+        pressure      
     ):
         vis = img.copy()
 
@@ -143,6 +145,6 @@ class PressurePipeline:
                 3
             )
 
-        cv2.imshow("Pressure pipeline debug", vis)
+        cv2.imshow(f"Pressure pipeline debug {file_name}", vis)
         cv2.waitKey(0)
         cv2.destroyAllWindows()

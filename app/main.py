@@ -3,12 +3,12 @@ import os
 import cv2
 from  core.pipeline import PressurePipeline
 
-IMG_DIR = "/Users/konstantinmazurenkov/MazurenkovKS_fcw/MazurenkovKS_fcw/app/images_test"
+IMG_DIR = "/Users/konstantinmazurenkov/MazurenkovKS_fcw/MazurenkovKS_fcw/app/order_test"
 
 pipeline = PressurePipeline(
-    gauge_model_path="/Users/konstantinmazurenkov/MazurenkovKS_fcw/MazurenkovKS_fcw/app/models/best_gauge.pt ",
+    gauge_model_path="/Users/konstantinmazurenkov/MazurenkovKS_fcw/MazurenkovKS_fcw/app/models/best_gauge.pt",
     seg_model_path="/Users/konstantinmazurenkov/MazurenkovKS_fcw/MazurenkovKS_fcw/app/models/best_seg.pt",
-    pressure_max=6
+    pressure_max=4
 )
 
 # Тестовая обработка 1 изображения

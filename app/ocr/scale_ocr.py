@@ -21,7 +21,7 @@ class ScaleOCR:
         h, w = img.shape[:2]
         x, y = maximum_point
 
-        # ROI справа-низу от maximum
+        # ROI справа внизу от maximum
         half = roi_size // 2
         x1 = max(0, x - half-20)
         y1 = max(0, y - half-20)
