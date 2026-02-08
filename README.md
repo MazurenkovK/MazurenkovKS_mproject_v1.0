@@ -13,7 +13,9 @@ My master's project
 pressure_gauge/
 │
 ├── app/
-│   ├── main.py             
+│   ├── main.py
+    │
+    ├── main_order.py           # для отчета         
 │   │
 │   ├── core/                   # базовые абстракции и интерфейсы
 │   │   └── pipeline.py
@@ -31,17 +33,19 @@ pressure_gauge/
 │   ├── geometry/
 │   │   └── geometry.py
 │   │
-│   ├── domain/                 # бизнес-логика и модели данных
-│   │   ├── measurement.py
-│   │   └── pressure_calculator.py
+│   ├── image_test/                 # для демонстрации системы MVP
+│   │   ├── test.jpg
+│   │   ├── ...
+│   │   └── test8.jpg
 │   │
 # │   ├── patterns/               
 # │   │   ├── factory.py
 # │   │   └── observer.py
 │   │
-│   ├── utils/
-│   │   ├── image_utils.py
-│   │   └── file_utils.py
+│   ├── order_test/                 # для отчета  
+│   │   ├── IMG_20251111_085523_9.jpg
+│   │   ├── ...
+│   │   └── IMG_20251116_092501_2.jpg
 │   │
 │   └── models/                 
 │       └── (веса моделей)
